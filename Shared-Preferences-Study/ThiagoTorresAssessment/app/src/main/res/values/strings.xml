@@ -1,0 +1,11 @@
+<resources>
+    <string name="formTitle">Formulário Assessment</string>
+    <string name="formNome">Nome</string>
+    <string name="formEndereco">Endereço</string>
+    <string name="formEstado">Estado</string>
+    <string name="formCidade">Cidade</string>
+    <string name="formTelefone">Telefone</string>
+    <string name="formEmail">E-mail</string>
+    <string name="formButton">Enviar</string>
+    <string name="appName">AssessmentForm</string>
+</resources>
