@@ -6,6 +6,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+
 public class MainActivity extends AppCompatActivity {
 
 
@@ -22,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
     private String mCidade;
     private String mTelefone;
     private String mEmail;
+
+    private AdView mAdView;
 
     private SharedPreferences mPreferences;
     private String sharedPrefFile = "al.infnet.thiagotorresassessmentform.sharedprefs";
@@ -63,6 +70,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713");
+
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         mPreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
 

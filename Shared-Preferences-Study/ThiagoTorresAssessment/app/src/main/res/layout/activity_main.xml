@@ -45,8 +45,9 @@
 
         <ImageView
             android:id="@+id/formIcon"
-            app:srcCompat="@drawable/ic_contacts_white_72dp"
-            style="@style/formIcon" />
+            style="@style/formIcon"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_contacts_white_72dp" />
 
         <TextView
             android:id="@+id/formTitle"
@@ -100,6 +101,17 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:text="@string/formButton" />
+
+            <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/adView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginBottom="15dp"
+                ads:adSize="BANNER"
+                ads:adUnitId="ca-app-pub-3940256099942544/6300978111" />
+
 
         </RelativeLayout>
 
