@@ -90,11 +90,11 @@ public class MainActivity extends AppCompatActivity {
         setFields();
     }
 
-//    public void clearData() {
-//        SharedPreferences.Editor preferencesEditor = mPreferences.edit();
-//        preferencesEditor.clear();
-//        preferencesEditor.apply();
-//    }
+    public void clearData(View view) {
+        SharedPreferences.Editor preferencesEditor = mPreferences.edit();
+        preferencesEditor.clear();
+        preferencesEditor.apply();
+    }
 
     public void setFields(){
         TextView nameView = findViewById(R.id.formNome);
