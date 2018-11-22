@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ThiagoTorres_TP1</string>
+    <string name="FormTitle">Adicionar novo contato</string>
+    <string name="formSaveButton">Salvar</string>
+    <string name="formCleanButton">Limpar</string>
+    <string name="ViewContacts">Visualizar Contatos</string>
+    <string name="contactName">Nome do Contato</string>
+</resources>
