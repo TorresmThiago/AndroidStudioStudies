@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/formIcon"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ic_person_add"/>
+
+    <TextView
+        android:id="@+id/formTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/formIcon"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
+        android:text="@string/FormTitle"/>
+
+    <EditText
+        android:id="@+id/formNome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="90dp"
+        android:layout_marginEnd="60dp"
+        android:layout_below="@+id/formTitle" />
+
+    <ImageView
+        android:id="@+id/nomeIcon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignTop="@+id/formNome"
+        android:layout_marginEnd="-90dp"
+        android:layout_toStartOf="@+id/formNome"
+        android:src="@drawable/ic_person" />
+
+    <EditText
+        android:id="@+id/formTelefone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="90dp"
+        android:layout_marginEnd="60dp"
+        android:layout_below="@+id/formNome" />
+
+    <ImageView
+        android:id="@+id/telefoneIcon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignTop="@+id/formTelefone"
+        android:layout_marginEnd="-90dp"
+        android:layout_toStartOf="@+id/formTelefone"
+        android:src="@drawable/ic_phone" />
+
+    <EditText
+        android:id="@+id/formEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="90dp"
+        android:layout_marginEnd="60dp"
+        android:layout_below="@+id/formTelefone" />
+
+    <ImageView
+        android:id="@+id/emailIcon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignTop="@+id/formEmail"
+        android:layout_marginEnd="-90dp"
+        android:layout_toStartOf="@+id/formEmail"
+        android:src="@drawable/ic_email" />
+
+    <EditText
+        android:id="@+id/formCidade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="90dp"
+        android:layout_marginEnd="60dp"
+        android:layout_below="@+id/formEmail" />
+
+    <ImageView
+        android:id="@+id/cidadeIcon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignTop="@+id/formCidade"
+        android:layout_marginEnd="-90dp"
+        android:layout_toStartOf="@+id/formCidade"
+        android:src="@drawable/ic_location_city" />
+
+    <LinearLayout
+        android:id="@+id/formButtonsContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/formCidade"
+        android:layout_marginTop="10dp">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/formSaveButton"
+            android:layout_weight="1"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/formCleanButton"
+            android:layout_weight="1"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:onClick="clearForm"/>
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/formButtonsContainer"
+        android:layout_centerHorizontal="true"
+        android:text="@string/ViewContacts"
+        android:onClick="openContacts"/>
+
+
+
+</RelativeLayout>

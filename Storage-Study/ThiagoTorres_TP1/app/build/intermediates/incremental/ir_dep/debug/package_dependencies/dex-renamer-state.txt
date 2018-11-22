@@ -1,0 +1,4 @@
+#Thu Nov 22 16:53:38 BRST 2018
+base.0=C\:\\Users\\Thiago.Torres\\Documents\\GitHub\\AndroidStudioStudies\\Storage-Study\\ThiagoTorres_TP1\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\10
+path.0=classes.dex
+renamed.0=classes.dex
