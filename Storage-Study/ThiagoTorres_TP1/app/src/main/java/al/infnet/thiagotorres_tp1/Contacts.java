@@ -13,7 +13,7 @@ public class Contacts extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private RecyclerView.LayoutManager mLayoutManager;
     ContactAdapter adapter;
-    private List<Contact> contatos = new ArrayList<Contact>();
+    private ArrayList<Contact> contatos = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +26,7 @@ public class Contacts extends AppCompatActivity {
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        adapter = new ContactAdapter(contatos);
+        adapter = new ContactAdapter(this, contatos);
         mRecyclerView.setAdapter(adapter);
     }
 
