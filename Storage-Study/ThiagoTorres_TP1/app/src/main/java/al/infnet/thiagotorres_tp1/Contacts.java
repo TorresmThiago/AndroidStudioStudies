@@ -19,12 +19,17 @@ public class Contacts extends AppCompatActivity {
     ContactAdapter adapter;
     private ArrayList<Contact> contatos = new ArrayList<>();
 
+    String nomeContatoLista;
+    String telefoneContatoLista;
+    String emailContatoLista;
+    String cidadeContatoLista;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contacts);
 
-        fillCustomList();
+        fillContactList();
 
         mRecyclerView = findViewById(R.id.contactsList);
         mLayoutManager = new LinearLayoutManager(this);
@@ -35,42 +40,53 @@ public class Contacts extends AppCompatActivity {
     }
 
 
-    public void fillCustomList() {
+    public void fillContactList() {
 
-
-        String lstrNomeArq;
         File arq;
         String lstrlinha;
-        TextView txtLer;
+        int index = 0;
 
-
-        try
-        {
-            txtLer = findViewById(R.id.teste);
-            txtLer.setText("");
-
+        try {
             arq = new File(getDir(), "ContactsList");
             BufferedReader br = new BufferedReader(new FileReader(arq));
 
-            System.out.println("Deu Até aqui");
-
             while ((lstrlinha = br.readLine()) != null)
             {
-                if (!txtLer.getText().toString().equals(""))
-                {
-                    txtLer.append("\n");
+                setContactField(index, lstrlinha);
+                index++;
+                if (index % 4 == 0) {
+                    index = 0;
+                    Contact contato = new Contact(nomeContatoLista, telefoneContatoLista, emailContatoLista, cidadeContatoLista);
+                    contatos.add(contato);
                 }
-                txtLer.append(lstrlinha);
             }
 
             System.out.println("Deu bom");
 
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             System.out.println("Deu ruim");
         }
 
+    }
+
+    private void setContactField(int index, String data){
+        switch (index){
+            case 0:
+                nomeContatoLista = data;
+                break;
+
+            case 1:
+                telefoneContatoLista = data;
+                break;
+
+            case 2:
+                emailContatoLista = data;
+                break;
+
+            case 3:
+                cidadeContatoLista = data;
+                break;
+        }
     }
 
     private String getDir() {
