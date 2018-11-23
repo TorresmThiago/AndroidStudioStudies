@@ -14,12 +14,14 @@ import java.util.ArrayList;
 
 public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactsViewHolder> {
 
+    public static ContactListItemClick contactListItemClick;
     ArrayList<Contact> contacts;
     Context context;
 
-    public ContactAdapter (Context context, ArrayList<Contact> contacts) {
+    public ContactAdapter (Context context, ArrayList<Contact> contacts, ContactListItemClick contactListItemClick) {
         this.context = context;
         this.contacts = contacts;
+        this.contactListItemClick = contactListItemClick;
     }
 
     @NonNull
@@ -60,8 +62,11 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.Contacts
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(context, MainActivity.class);
-                    context.startActivity(intent);
+                    contactListItemClick.onContactClick(contacts.get(getLayoutPosition()));
+
+//                    Intent intent = new Intent(context, MainActivity.class);
+//                    context.startActivity(intent);
+
                 }
             });
 

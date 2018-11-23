@@ -1,9 +1,14 @@
 package al.infnet.thiagotorres_tp1;
 
+import android.app.Dialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -13,7 +18,7 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Contacts extends AppCompatActivity {
+public class Contacts extends AppCompatActivity  implements ContactListItemClick{
 
     private RecyclerView mRecyclerView;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -25,6 +30,13 @@ public class Contacts extends AppCompatActivity {
     String emailContatoLista;
     String cidadeContatoLista;
 
+    TextView selectedContactNomeTextView;
+    TextView selectedContactTelefoneTextView;
+    TextView selectedContactEmailTextView;
+    TextView selectedContactCidadeTextView;
+
+    Dialog contactInfo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,11 +44,13 @@ public class Contacts extends AppCompatActivity {
 
         fillContactList();
 
+        contactInfo = new Dialog(this);
+
         mRecyclerView = findViewById(R.id.contactsList);
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        adapter = new ContactAdapter(this, contatos);
+        adapter = new ContactAdapter(this, contatos, this);
         mRecyclerView.setAdapter(adapter);
     }
 
@@ -93,4 +107,32 @@ public class Contacts extends AppCompatActivity {
         return root.toString();
     }
 
+    @Override
+    public void onContactClick(Object object) {
+        Contact contato = (Contact) object;
+
+        contactInfo.setContentView(R.layout.itemlist_contact_info);
+        contactInfo.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+        String selectedContactNome = contato.getNome();
+        String selectedContactTelefone = contato.getTelefone();
+        String selectedContactEmail = contato.getEmail();
+        String selectedContactCidade = contato.getCidade();
+
+        selectedContactNomeTextView = contactInfo.getWindow().findViewById(R.id.contactInfoNome);
+        selectedContactTelefoneTextView = contactInfo.getWindow().findViewById(R.id.contactInfoTelefone);
+        selectedContactEmailTextView = contactInfo.getWindow().findViewById(R.id.contactInfoEmail);
+        selectedContactCidadeTextView = contactInfo.getWindow().findViewById(R.id.contactInfoCidade);
+
+        selectedContactNomeTextView.setText(selectedContactNome);
+        selectedContactTelefoneTextView.setText(selectedContactTelefone);
+        selectedContactEmailTextView.setText(selectedContactEmail);
+        selectedContactCidadeTextView.setText(selectedContactCidade);
+
+        contactInfo.show();
+    }
+
+    public void CloseContactInfo(View view) {
+        contactInfo.dismiss();
+    }
 }
