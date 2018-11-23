@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Thiago.Torres\\Documents\\GitHub\\AndroidStudioStudies\\Storage-Study\\ThiagoTorres_TP1\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-is\\values-is.xml",
+            "outputFile": "C:\\Users\\Torres\\Documents\\Infnet\\Blocos\\Desenvolvimento Android\\AndroidStudioStudies\\Storage-Study\\ThiagoTorres_TP1\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-is\\values-is.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Thiago.Torres\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\21cef06c8f03e6eadd6a3059c74b45e9\\res\\values-is\\values-is.xml",
+                    "source": "C:\\Users\\Torres\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\cf559d46656fb1f0772665206f9f4ea3\\res\\values-is\\values-is.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Thiago.Torres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.0.aar\\fdc3c5a4f53b74b34ed9444f4c9195b9\\res\\values-is\\values-is.xml",
+                    "source": "C:\\Users\\Torres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.0.aar\\bb8aed8cb97758e148f5845da5ca3a4b\\res\\values-is\\values-is.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
 
@@ -28,26 +29,52 @@ public class MainActivity extends AppCompatActivity {
         cidadeForm = findViewById(R.id.formCidade);
     }
 
-//    public void saveData(View view) {
-//        ArrayList<String > contato = new ArrayList<>();
-//        contato.add(nomeForm.getText().toString());
-//        contato.add(telefoneForm.getText().toString());
-//        contato.add(emailForm.getText().toString());
-//        contato.add(cidadeForm.getText().toString());
-//
-//        FileOutputStream outputStream;
-//        String filename = "contato";
-//
-//        try {
-//            outputStream = openFileOutput(filename, Context.MODE_PRIVATE);
-//            outputStream.write(contato.getBytes());
-//            outputStream.close();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//
-//
-//    }
+    public void saveContact(View view) {
+
+        byte[] nomeDados;
+        byte[] telefoneDados;
+        byte[] emailDados;
+        byte[] cidadeDados;
+        byte[] newline;
+
+        try {
+
+            FileOutputStream fos;
+
+            newline = ("\r\n").getBytes();
+            nomeDados = nomeForm.getText().toString().getBytes();
+            telefoneDados = telefoneForm.getText().toString().getBytes();
+            emailDados = emailForm.getText().toString().getBytes();
+            cidadeDados = cidadeForm.getText().toString().getBytes();
+
+            fos = openFileOutput("ContactsList", Context.MODE_APPEND);
+
+            fos.write(nomeDados);
+            fos.write(newline);
+            fos.write(telefoneDados);
+            fos.write(newline);
+            fos.write(emailDados);
+            fos.write(newline);
+            fos.write(cidadeDados);
+            fos.write(newline);
+            fos.flush();
+            fos.close();
+
+            clearForm();
+
+        }
+        catch (Exception e) {
+            System.out.println("Deu ruim");
+        }
+
+    }
+
+    public void clearForm() {
+        nomeForm.setText("");
+        telefoneForm.setText("");
+        emailForm.setText("");
+        cidadeForm.setText("");
+    }
 
     public void clearForm(View view) {
         nomeForm.setText("");
