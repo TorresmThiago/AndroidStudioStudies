@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -61,10 +62,8 @@ public class Contacts extends AppCompatActivity {
                 }
             }
 
-            System.out.println("Deu bom");
-
         } catch (Exception e) {
-            System.out.println("Deu ruim");
+            Toast.makeText(getApplicationContext(), "Erro ao carregar contatos", Toast.LENGTH_SHORT).show();
         }
 
     }

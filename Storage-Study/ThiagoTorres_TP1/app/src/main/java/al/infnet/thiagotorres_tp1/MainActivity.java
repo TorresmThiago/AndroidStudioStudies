@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -62,9 +63,11 @@ public class MainActivity extends AppCompatActivity {
 
             clearForm();
 
+            Toast.makeText(getApplicationContext(), "Contato salvo!", Toast.LENGTH_SHORT).show();
+
         }
         catch (Exception e) {
-            System.out.println("Deu ruim");
+            Toast.makeText(getApplicationContext(), "Erro ao salvar contato!", Toast.LENGTH_SHORT).show();
         }
 
     }
