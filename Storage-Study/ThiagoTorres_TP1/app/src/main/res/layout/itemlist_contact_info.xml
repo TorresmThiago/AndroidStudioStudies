@@ -5,40 +5,108 @@
     android:layout_gravity="center"
     android:background="#FFF">
 
+
+    <TextView
+        android:id="@+id/contactInfoTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/closeContactInfo"
+        android:layout_marginStart="30dp"
+        android:text="Informação do contato"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline" />
+
+
     <ImageView
+        android:id="@+id/closeContactInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_margin="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
         android:src="@drawable/ic_close"
         android:onClick="CloseContactInfo"/>
+
+
+    <ImageView
+        android:id="@+id/contactInfoNomeIcon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/contactInfoTitle"
+        android:layout_alignStart="@+id/contactInfoTitle"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="-20dp"
+        android:onClick="CloseContactInfo"
+        android:src="@drawable/ic_person" />
 
     <TextView
         android:id="@+id/contactInfoNome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Contato" />
+        android:layout_alignTop="@+id/contactInfoNomeIcon"
+        android:layout_toEndOf="@+id/contactInfoNomeIcon"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:text="Nome da Silva Pereira"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline" />
+
+
+    <ImageView
+        android:id="@+id/contactInfoTelefoneIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/contactInfoNomeIcon"
+        android:layout_alignStart="@id/contactInfoNomeIcon"
+        android:layout_marginStart="13dp"
+        android:onClick="CloseContactInfo"
+        android:src="@drawable/ic_phone" />
 
     <TextView
         android:id="@+id/contactInfoTelefone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/contactInfoNome"
-        android:text="Contato" />
+        android:layout_alignStart="@+id/contactInfoNome"
+        android:layout_alignTop="@+id/contactInfoTelefoneIcon"
+        android:text="(21) 99999-9999"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead" />
+
+
+    <ImageView
+        android:id="@+id/contactInfoEmailIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/contactInfoTelefoneIcon"
+        android:layout_alignStart="@id/contactInfoNomeIcon"
+        android:layout_marginStart="13dp"
+        android:onClick="CloseContactInfo"
+        android:src="@drawable/ic_email" />
 
     <TextView
         android:id="@+id/contactInfoEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/contactInfoTelefone"
-        android:text="Contato" />
+        android:layout_alignStart="@+id/contactInfoNome"
+        android:layout_alignTop="@+id/contactInfoEmailIcon"
+        android:text="email@teste.com"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead" />
+
+    <ImageView
+        android:id="@+id/contactInfoCidadeIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/contactInfoEmailIcon"
+        android:layout_alignStart="@id/contactInfoNomeIcon"
+        android:layout_marginStart="13dp"
+        android:onClick="CloseContactInfo"
+        android:src="@drawable/ic_location_city" />
 
     <TextView
         android:id="@+id/contactInfoCidade"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/contactInfoEmail"
-        android:text="Contato" />
+        android:layout_alignStart="@+id/contactInfoNome"
+        android:layout_alignTop="@+id/contactInfoCidadeIcon"
+        android:text="Rio de Janeiro"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead" />
 
 
 

@@ -1,4 +1,4 @@
-#Fri Nov 23 20:54:30 BRST 2018
+#Fri Nov 23 21:49:01 BRST 2018
 base.0=C\:\\Users\\Torres\\Documents\\Infnet\\Blocos\\Desenvolvimento Android\\AndroidStudioStudies\\Storage-Study\\ThiagoTorres_TP1\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 path.0=classes.dex
 renamed.0=classes.dex

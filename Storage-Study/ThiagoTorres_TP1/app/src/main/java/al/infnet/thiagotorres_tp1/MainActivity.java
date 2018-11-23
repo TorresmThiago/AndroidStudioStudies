@@ -31,7 +31,27 @@ public class MainActivity extends AppCompatActivity{
     }
 
     public void saveContact(View view) {
+        Boolean areFieldsValid = validateFields();
+        if(areFieldsValid){
+           writeToFile();
+        } else {
+            Toast.makeText(getApplicationContext(), "Favor preencher todos os campos!", Toast.LENGTH_SHORT).show();
+        }
+    }
 
+    private Boolean validateFields() {
+        String emptyField = "";
+
+        if (nomeForm.getText().toString().equals(emptyField) || telefoneForm.getText().toString().equals(emptyField)
+         || emailForm.getText().toString().equals(emptyField) || cidadeForm.getText().toString().equals(emptyField)) {
+            return false;
+        } else {
+            return true;
+        }
+
+    }
+
+    public void writeToFile() {
         byte[] nomeDados;
         byte[] telefoneDados;
         byte[] emailDados;
