@@ -8,8 +8,10 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity{
@@ -92,6 +94,34 @@ public class MainActivity extends AppCompatActivity{
 
     }
 
+    public Boolean validateContactList() {
+
+            File arq;
+            String lstrlinha;
+            String contacts = "";
+            String root = getFilesDir().toString();
+
+            try {
+                arq = new File(root, "ContactsList");
+                BufferedReader br = new BufferedReader(new FileReader(arq));
+
+                while ((lstrlinha = br.readLine()) != null) {
+                    contacts = lstrlinha;
+
+                    if (contacts.equals("")){
+                        return false;
+                    } else {
+                        return true;
+                    }
+                }
+
+                return true;
+
+            } catch (Exception e) {
+                return false;
+            }
+    }
+
     public void clearForm() {
         nomeForm.setText("");
         telefoneForm.setText("");
@@ -107,7 +137,11 @@ public class MainActivity extends AppCompatActivity{
     }
 
     public void openContacts(View view) {
-        Intent intent = new Intent(this, Contacts.class);
-        startActivity(intent);
+        if (validateContactList()){
+            Intent intent = new Intent(this, Contacts.class);
+            startActivity(intent);
+        } else {
+            Toast.makeText(getApplicationContext(), "Você não possui contatos na lista!", Toast.LENGTH_SHORT).show();
+        }
     }
 }
