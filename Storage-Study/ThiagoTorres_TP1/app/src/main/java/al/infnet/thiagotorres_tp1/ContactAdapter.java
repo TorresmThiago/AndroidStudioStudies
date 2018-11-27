@@ -47,26 +47,16 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.Contacts
     public class ContactsViewHolder extends RecyclerView.ViewHolder {
 
         public TextView nomeForm;
-//        public EditText telefoneForm;
-//        public EditText emailForm;
-//        public EditText cidadeForm;
 
         public ContactsViewHolder(View itemView) {
             super(itemView);
 
             nomeForm = itemView.findViewById(R.id.contactName);
-//            telefoneForm = itemView.findViewById(R.id.formTelefone);
-//            emailForm = itemView.findViewById(R.id.formEmail);
-//            cidadeForm = itemView.findViewById(R.id.formCidade);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     contactListItemClick.onContactClick(contacts.get(getLayoutPosition()));
-
-//                    Intent intent = new Intent(context, MainActivity.class);
-//                    context.startActivity(intent);
-
                 }
             });
 
