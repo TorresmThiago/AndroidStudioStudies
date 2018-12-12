@@ -1,5 +1,6 @@
 package edu.infnet.al.thiagotorres_assessment;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -18,6 +19,7 @@ import com.mobsandgeeks.saripaar.annotation.NotEmpty;
 import com.mobsandgeeks.saripaar.annotation.Password;
 import com.mobsandgeeks.saripaar.annotation.Pattern;
 
+import java.io.FileOutputStream;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements Validator.ValidationListener {
@@ -67,7 +69,7 @@ public class MainActivity extends AppCompatActivity implements Validator.Validat
 
     @Override
     public void onValidationSucceeded() {
-        Toast.makeText(this, "Usuário cadastrado!", Toast.LENGTH_SHORT).show();
+        writeToFile();
     }
 
     @Override
@@ -83,5 +85,43 @@ public class MainActivity extends AppCompatActivity implements Validator.Validat
                 Toast.makeText(this, message, Toast.LENGTH_LONG).show();
             }
         }
+    }
+
+    public void writeToFile() {
+        byte[] nomeToFile;
+        byte[] loginEmailToFile;
+        byte[] senhaToFile;
+        byte[] cpfToFile;
+        byte[] newline;
+
+        try {
+
+            FileOutputStream fos;
+
+            newline = ("\r\n").getBytes();
+            nomeToFile = nome.getText().toString().getBytes();
+            loginEmailToFile = loginEmail.getText().toString().getBytes();
+            senhaToFile = senha.getText().toString().getBytes();
+            cpfToFile = cpf.getText().toString().getBytes();
+
+            fos = openFileOutput("Cadastro", Context.MODE_APPEND);
+
+            fos.write(nomeToFile);
+            fos.write(newline);
+            fos.write(loginEmailToFile);
+            fos.write(newline);
+            fos.write(senhaToFile);
+            fos.write(newline);
+            fos.write(cpfToFile);
+            fos.flush();
+            fos.close();
+
+            Toast.makeText(getApplicationContext(), "Contato salvo!", Toast.LENGTH_SHORT).show();
+
+        }
+        catch (Exception e) {
+            Toast.makeText(getApplicationContext(), "Erro ao salvar contato!", Toast.LENGTH_SHORT).show();
+        }
+
     }
 }
