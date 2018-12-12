@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">ThiagoTorres_Assessment</string>
+    <string name="cadastrarUsuarioButtonText">Cadastrar</string>
+    <string name="formularioTittleText">Formulário Assessment</string>
+    <string name="nomeHintText">Nome</string>
+    <string name="loginHintText">Login (Email)</string>
+    <string name="senhaHintText">Senha</string>
+    <string name="confirmarSenhaHintText">Confirmar senha</string>
+    <string name="cpfHintText">CPF</string>
 </resources>
