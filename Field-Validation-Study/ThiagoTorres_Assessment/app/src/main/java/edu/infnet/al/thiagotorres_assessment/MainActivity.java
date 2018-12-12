@@ -9,7 +9,14 @@ import android.widget.Toast;
 
 import com.mobsandgeeks.saripaar.ValidationError;
 import com.mobsandgeeks.saripaar.Validator;
+import com.mobsandgeeks.saripaar.annotation.ConfirmPassword;
+import com.mobsandgeeks.saripaar.annotation.Digits;
+import com.mobsandgeeks.saripaar.annotation.Email;
+import com.mobsandgeeks.saripaar.annotation.Max;
+import com.mobsandgeeks.saripaar.annotation.Min;
 import com.mobsandgeeks.saripaar.annotation.NotEmpty;
+import com.mobsandgeeks.saripaar.annotation.Password;
+import com.mobsandgeeks.saripaar.annotation.Pattern;
 
 import java.util.List;
 
@@ -17,19 +24,19 @@ public class MainActivity extends AppCompatActivity implements Validator.Validat
 
     Validator validator;
 
-    @NotEmpty
+    @Pattern(regex = "^[a-zA-Z0-9]{4,10}$", message = "Nome inválido. Min. 6, Max. 10 char.")
     EditText nome;
 
-    @NotEmpty
+    @Email(message = "Email inválido")
     EditText loginEmail;
 
-    @NotEmpty
+    @Password(message = "Senha inválida. Min. 6 char.")
     EditText senha;
 
-    @NotEmpty
+    @ConfirmPassword(message = "Senhas imcompatíveis")
     EditText confirmarSenha;
 
-    @NotEmpty
+    @Pattern(regex = "^[0-9]{11}$" , message = "CPF Inválido")
     EditText cpf;
 
     Button cadastrar;

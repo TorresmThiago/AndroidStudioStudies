@@ -64,8 +64,9 @@
         android:layout_below="@+id/confirmarSenhaEditText"
         android:layout_centerHorizontal="true"
         android:ems="10"
+        android:hint="@string/cpfHintText"
         android:inputType="number"
-        android:hint="@string/cpfHintText" />
+        android:maxLength="11" />
 
     <Button
         android:id="@+id/cadastrarUsuarioButton"
