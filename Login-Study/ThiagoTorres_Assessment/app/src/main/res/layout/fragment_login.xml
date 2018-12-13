@@ -7,14 +7,14 @@
 
 
     <TextView
-        android:id="@+id/formularioTittle"
+        android:id="@+id/loginTittle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="35dp"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
-        android:text="Cadastrar Usuário" />
+        android:text="Realizar Login de Usuário" />
 
     <EditText
         android:id="@+id/loginFragmentLogin"
@@ -22,10 +22,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="175dp"
         android:ems="10"
-        android:inputType="text"
-        android:hint="Nome" />
+        android:inputType="textEmailAddress"
+        android:hint="Login (Email)" />
 
     <EditText
         android:id="@+id/loginFragmentSenha"
@@ -34,39 +34,9 @@
         android:layout_below="@+id/loginFragmentLogin"
         android:layout_centerHorizontal="true"
         android:ems="10"
-        android:inputType="textEmailAddress"
-        android:hint="Login (Email)"/>
-
-    <EditText
-        android:id="@+id/senhaEditText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/loginFragmentSenha"
-        android:layout_centerHorizontal="true"
-        android:ems="10"
         android:inputType="text"
-        android:hint="Senha" />
+        android:hint="Senha"/>
 
-    <EditText
-        android:id="@+id/confirmarSenhaEditText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/senhaEditText"
-        android:layout_centerHorizontal="true"
-        android:ems="10"
-        android:hint="Confirmar Senha"
-        android:inputType="text" />
-
-    <EditText
-        android:id="@+id/cpfEditText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/confirmarSenhaEditText"
-        android:layout_centerHorizontal="true"
-        android:ems="10"
-        android:hint="CPF"
-        android:inputType="number"
-        android:maxLength="11" />
 
     <Button
         android:id="@+id/cadastrarUsuarioButton"
@@ -75,6 +45,6 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="100dp"
-        android:text="Cadastrar" />
+        android:text="Logar" />
 
 </RelativeLayout>

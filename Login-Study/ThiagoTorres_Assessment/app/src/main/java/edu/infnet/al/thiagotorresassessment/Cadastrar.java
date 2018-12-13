@@ -47,8 +47,8 @@ public class Cadastrar extends Fragment implements Validator.ValidationListener{
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_cadastrar, container,false);
 
-        nome = view.findViewById(R.id.nomeEditText);
-        loginEmail = view.findViewById(R.id.loginEditText);
+        nome = view.findViewById(R.id.loginFragmentLogin);
+        loginEmail = view.findViewById(R.id.loginFragmentSenha);
         senha = view.findViewById(R.id.senhaEditText);
         confirmarSenha = view.findViewById(R.id.confirmarSenhaEditText);
         cpf = view.findViewById(R.id.cpfEditText);
