@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">ThiagoTorresAssessment</string>
-    <string name="facebook_app_id">280674826126507</string> <string name="fb_login_protocol_scheme">fb280674826126507</string>
+    <string name="facebook_app_id">280674826126507</string>
+    <string name="fb_login_protocol_scheme">fb280674826126507</string>
 </resources>

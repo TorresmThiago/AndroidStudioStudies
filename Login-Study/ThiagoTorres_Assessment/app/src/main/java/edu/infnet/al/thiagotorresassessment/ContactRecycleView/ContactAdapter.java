@@ -1,4 +1,4 @@
-package al.infnet.thiagotorres_tp1;
+package edu.infnet.al.thiagotorresassessment.ContactRecycleView;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,30 +12,30 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class    ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactsViewHolder> {
+import edu.infnet.al.thiagotorresassessment.R;
 
-    public static ContactListItemClick contactListItemClick;
+public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactsViewHolder> {
+
     ArrayList<Contact> contacts;
     Context context;
 
-    public ContactAdapter (Context context, ArrayList<Contact> contacts, ContactListItemClick contactListItemClick) {
+    public ContactAdapter (Context context, ArrayList<Contact> contacts) {
         this.context = context;
         this.contacts = contacts;
-        this.contactListItemClick = contactListItemClick;
     }
 
     @NonNull
     @Override
     public ContactsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.itemlist_contact, parent, false);
-        ContactsViewHolder viewHolder = new ContactsViewHolder(itemView);
-        return viewHolder;
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.asset_item_list, parent, false);
+        return new ContactsViewHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ContactsViewHolder holder, int position) {
         Contact contato = contacts.get(position);
         holder.nomeForm.setText(contato.getNome());
+        holder.telefoneForm.setText(contato.getTelefone());
     }
 
     @Override
@@ -47,18 +47,13 @@ public class    ContactAdapter extends RecyclerView.Adapter<ContactAdapter.Conta
     public class ContactsViewHolder extends RecyclerView.ViewHolder {
 
         public TextView nomeForm;
+        public TextView telefoneForm;
 
         public ContactsViewHolder(View itemView) {
             super(itemView);
 
             nomeForm = itemView.findViewById(R.id.contactName);
-
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    contactListItemClick.onContactClick(contacts.get(getLayoutPosition()));
-                }
-            });
+            telefoneForm = itemView.findViewById(R.id.contactTelefone);
 
         }
     }
