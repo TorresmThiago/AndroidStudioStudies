@@ -3,6 +3,8 @@ package edu.infnet.al.thiagotorresassessment;
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
@@ -12,10 +14,18 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Random;
 
+import edu.infnet.al.thiagotorresassessment.ContactRecycleView.Contact;
+import edu.infnet.al.thiagotorresassessment.ContactRecycleView.ContactAdapter;
+
 public class LoggedIn extends AppCompatActivity {
 
     ArrayList<String> nomes = new ArrayList<>();
     ArrayList<String> telefones = new ArrayList<>();
+    ArrayList<Contact> contatos = new ArrayList<>();
+
+    RecyclerView mRecyclerView;
+    LinearLayoutManager mLayoutManager;
+    ContactAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +40,14 @@ public class LoggedIn extends AppCompatActivity {
         telefones.add("(21) 98765-4321");
         telefones.add("(21) 91827-3645");
 
+        writeToFile();
+
+        mRecyclerView = findViewById(R.id.contactsList);
+        mLayoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+
+        adapter = new ContactAdapter(this, contatos);
+        mRecyclerView.setAdapter(adapter);
     }
 
     public void writeToFile() {
@@ -55,6 +73,8 @@ public class LoggedIn extends AppCompatActivity {
             fos.flush();
             fos.close();
 
+            fillContactList();
+
         }
         catch (Exception e) {
             Toast.makeText(getApplicationContext(), "Erro ao salvar contato!", Toast.LENGTH_SHORT).show();
@@ -69,20 +89,19 @@ public class LoggedIn extends AppCompatActivity {
         String lstrlinha;
         String root = getFilesDir().toString();
 
-        //Classe a ser criada
+        Contact contact = new Contact(null, null);
 
         try {
             arq = new File(root, "ContactsList");
             BufferedReader br = new BufferedReader(new FileReader(arq));
 
-            while ((lstrlinha = br.readLine()) != null)
-            {
+            while ((lstrlinha = br.readLine()) != null) {
                 if(index % 2 == 0){
-                    //New classe
-                    //setUmAtributo
+                    contact = new Contact(null, null);
+                    contact.setNome(lstrlinha);
                 } else {
-                    //setOutroAtributo
-                    //AddToList
+                    contact.setTelefone(lstrlinha);
+                    contatos.add(contact);
                 }
                 index++;
             }
