@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "254804978091",
+    "firebase_url": "https://thiagotorresassessment.firebaseio.com",
+    "project_id": "thiagotorresassessment",
+    "storage_bucket": "thiagotorresassessment.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:254804978091:android:4a14e223074e5135",
+        "android_client_info": {
+          "package_name": "edu.infnet.al.thiagotorresassessment"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "254804978091-iol72hffn5gpsnqkndphg79iktf2itvd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.infnet.al.thiagotorresassessment",
+            "certificate_hash": "cd4189de1112e0fb049f8b7166098636e35c9c79"
+          }
+        },
+        {
+          "client_id": "254804978091-cis1fm1inhnrb8d51tb09ouvl0smtbt9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBajkvz5N1d2tYP3yoTKWiGyM_OuoRlvzw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "254804978091-cis1fm1inhnrb8d51tb09ouvl0smtbt9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
