@@ -58,20 +58,24 @@ public class LoggedIn extends AppCompatActivity {
 
         try {
 
-            FileOutputStream fos;
+            for (int i = 0; i < 20; i ++){
 
-            newline = ("\r\n").getBytes();
-            nomeDados = nomes.get(random.nextInt(nomes.size())).getBytes();
-            telefoneDados = telefones.get(random.nextInt(telefones.size())).getBytes();
+                FileOutputStream fos;
 
-            fos = openFileOutput("ContactsList", Context.MODE_APPEND);
+                newline = ("\r\n").getBytes();
+                nomeDados = nomes.get(random.nextInt(nomes.size())).getBytes();
+                telefoneDados = telefones.get(random.nextInt(telefones.size())).getBytes();
 
-            fos.write(nomeDados);
-            fos.write(newline);
-            fos.write(telefoneDados);
-            fos.write(newline);
-            fos.flush();
-            fos.close();
+                fos = openFileOutput("ContactsList", Context.MODE_APPEND);
+
+                fos.write(nomeDados);
+                fos.write(newline);
+                fos.write(telefoneDados);
+                fos.write(newline);
+                fos.flush();
+                fos.close();
+
+            }
 
             fillContactList();
 

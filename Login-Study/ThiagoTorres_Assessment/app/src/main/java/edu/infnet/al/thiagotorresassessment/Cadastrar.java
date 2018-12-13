@@ -5,6 +5,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +22,7 @@ import com.mobsandgeeks.saripaar.annotation.Pattern;
 
 import java.util.List;
 
-public class Cadastrar extends Fragment implements Validator.ValidationListener{
+public class Cadastrar extends AppCompatActivity implements Validator.ValidationListener{
 
 
     Validator validator;
@@ -44,15 +45,16 @@ public class Cadastrar extends Fragment implements Validator.ValidationListener{
     Button cadastrar;
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_cadastrar, container,false);
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_logged_in);
 
-        nome = view.findViewById(R.id.loginFragmentLogin);
-        loginEmail = view.findViewById(R.id.loginFragmentSenha);
-        senha = view.findViewById(R.id.senhaEditText);
-        confirmarSenha = view.findViewById(R.id.confirmarSenhaEditText);
-        cpf = view.findViewById(R.id.cpfEditText);
-        cadastrar = view.findViewById(R.id.cadastrarUsuarioButton);
+        nome = findViewById(R.id.loginFragmentLogin);
+        loginEmail = findViewById(R.id.loginFragmentSenha);
+        senha = findViewById(R.id.senhaEditText);
+        confirmarSenha = findViewById(R.id.confirmarSenhaEditText);
+        cpf = findViewById(R.id.cpfEditText);
+        cadastrar = findViewById(R.id.cadastrarUsuarioButton);
 
         cadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,7 +66,6 @@ public class Cadastrar extends Fragment implements Validator.ValidationListener{
         validator = new Validator(this);
         validator.setValidationListener(this);
 
-        return view;
     }
 
     @Override
@@ -77,13 +78,13 @@ public class Cadastrar extends Fragment implements Validator.ValidationListener{
     public void onValidationFailed(List<ValidationError> errors) {
         for (ValidationError error : errors) {
             View view = error.getView();
-            String message = error.getCollatedErrorMessage(this.getContext());
+            String message = error.getCollatedErrorMessage(this);
 
             // Display error messages ;)
             if (view instanceof EditText) {
                 ((EditText) view).setError(message);
             } else {
-                Toast.makeText(this.getContext(), message, Toast.LENGTH_LONG).show();
+                Toast.makeText(this, message, Toast.LENGTH_LONG).show();
             }
         }
     }

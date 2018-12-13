@@ -20,7 +20,8 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/mainActivityIcon"
-        android:text="Login"/>
+        android:text="Login"
+        android:onClick="goToLoginActivity"/>
 
     <Button
         android:id="@+id/mainActivityCadastrarButton"
@@ -28,7 +29,8 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/mainActivityLoginButton"
-        android:text="Cadastrar"/>
+        android:text="Cadastrar"
+        android:onClick="goToCadastrarActivity"/>
 
     <com.facebook.login.widget.LoginButton
         android:id="@+id/loginWithFacebook"
