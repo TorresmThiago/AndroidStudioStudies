@@ -40,6 +40,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".LoggedIn" />
+        <activity android:name=".Login" />
+        <activity android:name=".Cadastrar" />
     </application>
 
 </manifest>

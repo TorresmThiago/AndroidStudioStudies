@@ -1,6 +1,7 @@
 package edu.infnet.al.thiagotorresassessment;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -13,6 +14,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.mobsandgeeks.saripaar.ValidationError;
 import com.mobsandgeeks.saripaar.Validator;
 import com.mobsandgeeks.saripaar.annotation.ConfirmPassword;
@@ -22,10 +27,12 @@ import com.mobsandgeeks.saripaar.annotation.Pattern;
 
 import java.util.List;
 
+import bolts.Task;
+
 public class Cadastrar extends AppCompatActivity implements Validator.ValidationListener{
 
-
     Validator validator;
+    private FirebaseAuth mAuth;
 
     @Pattern(regex = "^[a-zA-Z0-9]{4,10}$", message = "Nome inválido. Min. 6, Max. 10 char.")
     EditText nome;
@@ -47,7 +54,7 @@ public class Cadastrar extends AppCompatActivity implements Validator.Validation
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_logged_in);
+        setContentView(R.layout.acivity_cadastrar);
 
         nome = findViewById(R.id.loginFragmentLogin);
         loginEmail = findViewById(R.id.loginFragmentSenha);
@@ -56,21 +63,32 @@ public class Cadastrar extends AppCompatActivity implements Validator.Validation
         cpf = findViewById(R.id.cpfEditText);
         cadastrar = findViewById(R.id.cadastrarUsuarioButton);
 
-        cadastrar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                validator.validate();
-            }
-        });
-
         validator = new Validator(this);
         validator.setValidationListener(this);
 
+        mAuth = FirebaseAuth.getInstance();
+
+    }
+
+    public void startValidation(View view) {
+        validator.validate();
     }
 
     @Override
     public void onValidationSucceeded() {
-        //Cadastrar no Firebase
+        mAuth.createUserWithEmailAndPassword(loginEmail.getText().toString(), senha.getText().toString())
+            .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull com.google.android.gms.tasks.Task<AuthResult> task) {
+                    if (task.isSuccessful()) {
+                        goToLoginActivity();
+                    } else {
+                        senha.setText("");
+                        confirmarSenha.setText("");
+                        Toast.makeText(Cadastrar.this, "Falha ao cadastrar usuário", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
     }
 
     @RequiresApi(api = Build.VERSION_CODES.M)
@@ -87,5 +105,10 @@ public class Cadastrar extends AppCompatActivity implements Validator.Validation
                 Toast.makeText(this, message, Toast.LENGTH_LONG).show();
             }
         }
+    }
+
+    public void goToLoginActivity() {
+        Intent intent = new Intent(this, Login.class);
+        startActivity(intent);
     }
 }
